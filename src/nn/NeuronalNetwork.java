@@ -2,7 +2,9 @@ package nn;
 
 public interface NeuronalNetwork {
 	
-	void setInput(double... inputVector);
+	double[] getInputVector();
 	
-	double[] getOutput();
+	void setInputVector(double... inputVector);
+	
+	double[] getOutputVector();
 }

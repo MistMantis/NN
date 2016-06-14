@@ -11,41 +11,35 @@ public class NeuronImpl implements Neuron {
 
 	private ActivationFunction activationFunction;
 
-	private Double output;
-
 	public NeuronImpl(ActivationFunction f) {
 		this.inputs = new LinkedList<>();
 		this.activationFunction = f;
 	}
 
-	/**
-	 * computes the output of the {@link Neuron}. if the output has already been
-	 * computed (!= null), it is not computed again.
-	 * 
-	 * @return output value
-	 */
 	@Override
 	public double getOutput() {
-		if (this.output == null) {
-
-			double sum = 0d;
-			// input function
-			for (NeuronConnection c : this.inputs) {
-				sum += (c.getFrom().getOutput() * c.getWeight());
-			}
-
-			// activation function
-			this.output = this.activationFunction.f(sum);
+		double sum = 0d;
+		// input function
+		for (NeuronConnection c : this.inputs) {
+			sum += (c.getFrom().getOutput() * c.getWeight());
 		}
-		return this.output;
+		// activation function
+		return this.activationFunction.f(sum);
 	}
 
-	public List<NeuronConnection> getInputs() {
+	public List<NeuronConnection> getInputConnections() {
 		return inputs;
 	}
-	
-	public void setInputs(List<NeuronConnection> connections) {
+
+	public void setInputConnections(List<NeuronConnection> connections) {
 		this.inputs = connections;
 	}
 
+	public ActivationFunction getActivationFunction() {
+		return activationFunction;
+	}
+
+	public void setActivationFunction(ActivationFunction activationFunction) {
+		this.activationFunction = activationFunction;
+	}
 }

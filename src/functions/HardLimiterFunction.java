@@ -9,6 +9,6 @@ public class HardLimiterFunction implements ActivationFunction {
 
 	@Override
 	public double f(double x) {
-		return x >= this.threshold ? 1d : 0d;
+		return x > this.threshold ? 1d : 0d;
 	}
 }

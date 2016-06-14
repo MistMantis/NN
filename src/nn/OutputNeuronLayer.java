@@ -19,7 +19,7 @@ public class OutputNeuronLayer implements NeuronLayer {
 		return this.outputs;
 	}
 
-	public double[] getOutput() {
+	public double[] getOutputVector() {
 		double[] outputVector = new double[this.outputs.size()];
 		for (int i = 0; i < this.outputs.size(); i++) {
 			outputVector[i] = this.outputs.get(i).getOutput();
